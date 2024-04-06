@@ -1,0 +1,683 @@
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #4A90E2;
+    --accent: #D0021B;
+    --background: #F5F5F5;
+}
+
+body {
+    background: var(--background);
+    font-family: "Poppins", sans-serif;
+    color: #333; /* Darker text for better readability */
+}
+
+/* Header */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    z-index: 1000;
+}
+
+header::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    transform: translateY(-50%);
+    left: 100px;
+    height: 5px;
+    width: 40%;
+    background: linear-gradient(90deg, var(--primary), transparent);
+}
+
+.logo {
+    
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.logo img {
+    max-width: 200px;
+    filter: invert(1);
+}
+
+header .year {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 1em;
+    color: #ffffff;
+    letter-spacing: 1px;
+    font-weight: 800;
+    margin-top: 40px;
+}
+
+header .menu {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    background: url(../images/menu-3-fill.png) no-repeat;
+    background-size: 30px;
+    background-position: center;
+    filter: invert(1);
+    cursor: pointer;
+}
+
+header .menu.active {
+    position: relative;
+    height: 35px;
+    width: 35px;
+    background: url(../images/close-line.png) no-repeat;
+    background-size: 35px;
+    background-position: center;
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Navigation */
+
+.nav {
+    z-index: 200;
+    position: absolute;
+    right: 100px;
+    top: 0;
+    width: 30%;
+    height: 5px;
+    border-bottom: 5px solid;
+    border-image: linear-gradient(90deg,
+            transparent,
+            var(--primary),
+            var(--primary),
+            transparent) 30;
+    background: transparent;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    transform-origin: right;
+}
+
+.nav.active {
+    top: 100px;
+    width: 40%;
+    height: 100px;
+    border-top: 5px solid;
+    border-bottom: none;
+}
+
+.nav li {
+    position: relative;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100px);
+    transition: 0.5s;
+}
+
+.nav.active li {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav li a {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 5px 20px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.nav li a:hover {
+    box-shadow: inset 0 0 20px rgba(0, 194, 222, 0.5);
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.banner::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.9))
+}
+
+.banner::before {
+    position: absolute;
+    content: '';
+    top: 25%;
+    left: 0;
+    width: 5px;
+    height: 40%;
+    background: linear-gradient(var(--primary), transparent);
+    z-index: 100;
+}
+
+.banner .bg-video {
+    display: none;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.banner .bg-video.active {
+    display: block;
+}
+
+/* Banner Content */
+.banner .content {
+    position: relative;
+    max-width: 700px;
+    padding-bottom: 200px;
+    z-index: 100;
+}
+
+.banner .content h1 {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 10em;
+    color: #ffffff;
+    font-weight: 500;
+    line-height: 0.8em;
+    letter-spacing: 5px;
+}
+
+.banner .content .model {
+    font-size: 4em;
+    text-transform: uppercase;
+    color: var(--primary);
+    display: none;
+}
+
+.banner .content .model.active {
+    display: block;
+}
+
+.banner .content p {
+    color: #ffffff;
+    font-size: 200;
+    letter-spacing: 1px;
+    margin-bottom: 50px;
+}
+
+.banner .content a {
+    position: relative;
+    width: 200px;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 20px;
+    background: transparent;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(90deg,
+            transparent,
+            var(--primary),
+            var(--primary),
+            transparent) 30;
+    box-shadow: inset 0 0 10px rgba(60, 162, 225, 0.5);
+    backdrop-filter: blur(20px);
+    font-size: 1.2em;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.5s;
+}
+
+.banner .content a:hover {
+    box-shadow: inset 0 0 50px rgba(60, 162, 225, 0.5);
+}
+
+/* Screen */
+.banner .screen {
+    position: absolute;
+    right: 10%;
+    bottom: 100px;
+    width: 300px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: animate 30s linear infinite;
+    z-index: 100;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotateX(-30deg) rotateY(0);
+    }
+
+    100% {
+        transform: rotateX(-30deg) rotateY(360deg);
+    }
+}
+
+.screen div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.screen div span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(transparent, var(--primary));
+    transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+}
+
+.shadow {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 200px;
+    background: var(--primary);
+    transform: rotateX(-90deg) translateZ(150px);
+    filter: blur(20px);
+    box-shadow: 0 0 120px rgba(70, 190, 220, 0.2),
+        0 0 120px rgba(70, 190, 220, 0.4),
+        0 0 120px rgba(70, 190, 220, 0.6),
+        0 0 120px rgba(70, 190, 220, 0.8),
+        0 0 120px rgba(70, 190, 220, 1);
+}
+
+/* Screen Video */
+.screen div span video {
+    position: absolute;
+    bottom: 0;
+    height: 75%;
+    width: 100%;
+    transition: 0.5s;
+    object-fit: cover;
+    object-position: center;
+}
+
+.trailer {
+    display: none;
+}
+
+.trailer.active {
+    display: block;
+}
+
+.banner .gallery {
+    position: absolute;
+    content: '';
+    left: 100px;
+    bottom: 0;
+    width: 55%;
+    height: 30%;
+    z-index: 100;
+    background: transparent;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.5),
+    0px -10px 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner .gallery::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 10px;
+    width: 100%;
+    background: var(--primary);
+    filter: blur(15px);
+}
+
+.banner .gallery .carousel {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .carousel-item {
+    width: 250px;
+    cursor: pointer;
+}
+
+.carousel .carousel-item img {
+    border-radius: 10px;
+    object-fit: cover;
+    object-position: center;
+
+}
+
+.carousel .carousel-item h4 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 1.3em;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Social Icons */
+.sci {
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.sci li {
+    list-style: none;
+}
+
+.sci li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2em;
+    transition: 0.3s;
+}
+
+.sci li a:hover {
+    color: var(--primary);
+}
+
+/* Responsive Design */
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    header {
+        padding: 20px 50px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    header .year {
+        margin-top: 0;
+    }
+
+    header .menu {
+        position: absolute;
+        right: 0;
+    }
+    
+
+    header .menu.active {
+        position: absolute;
+        right: 0;
+    }
+    header::after {
+        display: none;
+    }
+
+    .logo {
+        margin-top: 0px ;
+    }
+
+    .nav {
+        right: 0;
+        width: 100%;
+    }
+
+    .nav.active{
+        right: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        /* border: none; */
+    }
+
+    .banner {
+        padding: 50px 30px 100px;
+    }
+    .banner .content {
+        position: relative;
+        padding: 50px 0 100px;
+    }
+
+    .banner .content h1 {
+        font-size: 5em;
+    }
+    .banner .content p {
+        margin-right: 10px;
+    }
+    .banner .content .model {
+        font-size: 2em;
+    }
+    .banner .content a {
+        padding: 5px 30px;
+    }
+    .banner .screen {
+        display: none;
+    }
+    .banner .gallery {
+        width: 100%;
+        left: 0;
+    }
+    .sci {
+        right: 2%;
+    }
+
+}
+
+/* iPad Responsive Design */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1400px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    /* Adjust header for better visibility */
+    header {
+        padding: 20px;
+    }
+    header::after {
+        left: 0%;
+    }
+    header .menu, header .year {
+        font-size: 0.8em; /* Adjust font size for clarity */
+    }
+
+    /* Increase nav item spacing for easier interaction */
+    .nav li a {
+        padding: 10px 15px;
+        font-size: 1.2em; /* Make the font a bit larger for readability */
+    }
+
+    /* Adjust banner content for better readability and visibility */
+    .banner {
+        padding: 50px; /* Provide more padding for better layout */
+    }
+
+    .banner .content h1 {
+        font-size: 6em; /* Adjust the main title size */
+    }
+
+    .banner .content .model {
+        font-size: 3em; /* Adjust the model title size */
+    }
+
+    .banner .content p {
+        font-size: 1.5em; /* Make paragraph text larger for readability */
+    }
+
+    .banner .content a {
+        font-size: 1.5em; /* Increase call-to-action button font size */
+        padding: 15px 40px; /* Increase button padding for better touch interaction */
+    }
+
+    .banner .screen {
+        display: none;
+    }
+
+    /* Adjust gallery for better interaction and visibility */
+    .banner .gallery {
+        width: 70%; /* Adjust width for better layout */
+        height: 25%; /* Adjust height to maintain aspect ratio */
+        left: 15%; /* Center align the gallery */
+    }
+
+    .sci {
+        right: 50px; /* Adjust the social icons' position */
+    }
+}
+
+/* Smaller device */
+
+@media (max-width: 653px) {
+
+    header {
+        padding: 20px 50px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    header .year {
+        margin-top: 0;
+    }
+
+    header .menu {
+        position: absolute;
+        right: 0;
+    }
+    
+
+    header .menu.active {
+        position: absolute;
+        right: 0;
+    }
+    header::after {
+        display: none;
+    }
+
+    .logo {
+        margin-top: 0px ;
+    }
+
+    .nav {
+        right: 0;
+        width: 100%;
+    }
+
+    .nav.active{
+        right: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        /* border: none; */
+    }
+
+    .banner {
+        padding: 50px 30px 100px;
+    }
+    .banner .content {
+        position: relative;
+        padding: 50px 0 100px;
+    }
+
+    .banner .content h1 {
+        font-size: 3.3em;
+    }
+    .banner .content p {
+        margin-right: 10px;
+    }
+    .banner .content .model {
+        font-size: 2em;
+    }
+    .banner .content a {
+        padding: 5px 30px;
+    }
+    .banner .screen {
+        display: none;
+    }
+    .banner .gallery {
+        width: 100%;
+        left: 0;
+    }
+    .sci {
+        right: 2%;
+    }
+
+}
+
+
+/* Magnetic */
+
+.btn {
+    
+    display: inline-flex; /* Adjusts display to inline-flex to center the button content */
+    align-items: center; /* Centers content vertically */
+    cursor: pointer;
+    border: 2px solid #000; /* Makes the border slightly thicker for a bolder look */
+    border-radius: 30px; /* Increases border-radius for a pill-shaped, modern button */
+    padding: 15px 30px; /* Adjusts padding for better spacing around the text */
+    outline: none;
+    background-color: #FFF; /* Sets a default white background */
+    color: #000; /* Sets text color to black */
+    font-size: 1rem; /* Adjusts font size */
+    font-weight: 600; /* Makes font weight bolder */
+    letter-spacing: 1px; /* Adds spacing between letters for better readability */
+    transition: all 0.3s ease; /* Smooths the transition for all properties */
+    text-transform: uppercase; /* Optional: makes the button text uppercase for emphasis */
+  }
+  
+  .btn:hover {
+    background-color: #000; /* Changes background to black on hover */
+    color: #FFF; /* Changes text color to white on hover */
+    border-color: #FFF; /* Changes border color to white on hover */
+    transform: scale(1.05); /* Slightly enlarges the button on hover for a dynamic effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+  }
+  

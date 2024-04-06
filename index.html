@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>McLaren | Sports Car</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <span class="year magnetic"  data-strength="10" data-strength-text="25"  >2024</span>
+        <div class="magnetic" data-strength="10" data-strength-text="25"
+            style="padding: large amounts; display: inline-block;">
+            <a href="/" class="logo"><img src="/images/logo.png" alt="logo"></a>
+        </div>
+        <a href="#" class="menu magnetic " data-strength="25" data-strength-text="25"
+        style="padding: large amounts; display: inline-block;" onclick="toggleMenu()"></a>
+    </header>
+    <div class="banner">
+        <ul class="nav">
+            <div class="magnetic" data-strength="10" data-strength-text="25"
+                style="padding: large amounts; display: inline-block;">
+                <li><a href="#">Supercars</a></li>
+            </div>
+            <div class="magnetic" data-strength="10" data-strength-text="25"
+                style="padding: large amounts; display: inline-block;">
+                <li><a href="#">GT</a></li>
+
+            </div>
+            <div class="magnetic" data-strength="10" data-strength-text="25"
+                style="padding: large amounts; display: inline-block;">
+                <li><a href="#">Ultimate</a></li>
+            </div>
+            <div class="magnetic" data-strength="10" data-strength-text="25"
+                style="padding: large amounts; display: inline-block;">
+                <li><a href="#">Solus GT</a></li>
+            </div>
+            <div class="magnetic" data-strength="10" data-strength-text="25"
+                style="padding: large amounts; display: inline-block;">
+                <li><a href="#">Legacy</a></li>
+            </div>
+        </ul>
+        <div class="bg-video-list">
+            <video class="bg-video mclaren-1 active" autoplay loop muted src="./assets/mclaren-1.mp4"></video>
+            <video class="bg-video mclaren-2" autoplay loop muted src="./assets/mclaren-2.mp4 "></video>
+            <video class="bg-video mclaren-3" autoplay loop muted src="./assets/mclaren-3.mp4"></video>
+            <video class="bg-video mclaren-5" autoplay loop muted src="./assets/mclaren-5.mp4"></video>
+        </div>
+        <div class="content">
+            <h1 class="magnetic"  data-strength="50" data-strength-text="25">McLAREN</h1>
+            <h3 class="magnetic model mclaren-1 active" data-strength="10" data-strength-text="25" >765LT SPIDER</h3>
+            <h3 class="magnetic model mclaren-2" data-strength="10" data-strength-text="25" style="color: #92ff00">ARTURA</h3>
+            <h3 class="magnetic model mclaren-3" data-strength="10" data-strength-text="25" style="color: #ff0015">750S</h3>
+            <h3 class="magnetic model mclaren-5" data-strength="10" data-strength-text="25" style="color: #bbc0dd">750S SPIDER</h3>
+            <p class="magnetic"  data-strength="10" data-strength-text="25">McLaren, an iconic name in both luxury sports cars and Formula 1 racing, epitomizes excellence in
+                performance, innovation, and design.</p>
+
+            <div class="magnetic" data-strength="50" data-strength-text="50"
+            style="padding: large amounts; display: inline-block;">
+                <button type="button" class="btn" name="button">
+                    <span class="btn-text">
+                        <span class="btn-text-inner">Enquire</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="screen">
+            <div class="shadow"></div>
+            <div>
+                <span style="--i: 0">
+                    <!-- Insert the screen video  -->
+                    <video src="./assets/mclaren-1.mp4" class="trailer mclaren-1 screen-video active" autoplay loop
+                        muted>
+                    </video>
+                    <video src="./assets/mclaren-2.mp4" class="trailer mclaren-2 screen-video" autoplay loop muted>
+                    </video>
+                    <video src="./assets/mclaren-3.mp4" class="trailer mclaren-3 screen-video" autoplay loop muted>
+                    </video>
+                    <video src="./assets/mclaren-5.mp4" class="trailer mclaren-5 screen-video" autoplay loop muted>
+                    </video>
+                </span>
+                <span style="--i: 1"> <video src="./assets/trailer-1.mp4" class="screen-video" autoplay loop
+                        muted></video></span>
+                <span style="--i: 2"> <video src="./assets/trailer-2.mp4" class="screen-video" autoplay loop muted>
+                    </video></span>
+                <span style="--i: 3"> <video src="./assets/trailer-3.mp4" class="screen-video" autoplay loop muted>
+                    </video></span>
+            </div>
+        </div>
+        <div class="gallery">
+            <div class="carousel">
+                <a class="carousel-item" href="#" onclick="changeVideo('mclaren-1');">
+                    <img src="./images/cars/mclaren-1.jpg" alt="">
+                    <h6>765LT SPIDER</h6>
+                </a>
+                <a class="carousel-item" href="#" onclick="changeVideo('mclaren-2');">
+                    <img src="./images/cars/mclaren-2.jpg" alt="">
+                    <h6 style="color: #92ff00">ARTURA</h6>
+                </a>
+                <a class="carousel-item" href="#" onclick="changeVideo('mclaren-3');">
+                    <img src="./images/cars/mclaren-3.jpeg" alt="">
+                    <h6 style="color: #ff0015">750S</h6>
+                </a>
+
+                <a class="carousel-item" href="#" onclick="changeVideo('mclaren-5');">
+                    <img src="./images/cars/mclaren-5.jpeg" alt="">
+                    <h6 style="color: #bbc0dd">750S SPIDER</h6>
+                </a>
+            </div>
+        </div>
+    </div>
+    <ul class="sci">
+        <div class="magnetic" data-strength="10" data-strength-text="25"
+            style="padding: large amounts; display: inline-block;">
+            <li><a href=""><i class="fa-brands fa-facebook"></i></a></li>
+        </div>
+        <div class="magnetic" data-strength="10" data-strength-text="25"
+            style="padding: large amounts; display: inline-block;">
+            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+
+        </div>
+        <div class="magnetic" data-strength="10" data-strength-text="25"
+            style="padding: large amounts; display: inline-block;">
+            <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+        </div>
+
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://kit.fontawesome.com/c5861f116f.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.carousel').carousel();
+        });
+    </script>
+</body>
+
+</html>
